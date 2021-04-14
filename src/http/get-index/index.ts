@@ -18,7 +18,24 @@ export async function handler (req: object) {
     body: JSON.stringify({ok: true})
   }
 }*/
+import "https://deno.land/x/dotenv/load.ts";
+import * as base64 from "https://denopkg.com/chiefbiiko/base64/mod.ts";
 
+  import {
+    APIGatewayProxyEvent,
+    Context,
+  } from "https://deno.land/x/lambda/mod.ts"
+  import { SmtpClient } from "https://deno.land/x/smtp/mod.ts"
+  // import { SmtpClient } from "https://raw.githubusercontent.com/chisNaN/deno-smtp/master/mod.ts"
+  import { CouchClient } from "https://denopkg.com/chisnan/deno-couchdb/couch.ts"
+  const username = "admin";
+  const password:string = Deno.env.get('COUCH_DB_PASSWORD') || 'Fils2pute';
+  const opts = { basicAuth: { username, password } }
+  const COUCH_DB_SERVER:string = Deno.env.get('COUCH_DB_SERVER') || 'no couchdb'
+  const couch = new CouchClient(
+    COUCH_DB_SERVER,
+    opts,
+  );
 
   const headers = {
     cors: true,
