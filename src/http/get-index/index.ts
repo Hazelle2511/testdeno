@@ -1,6 +1,6 @@
 // TODO: modify the body object!
 
-  const headers = {
+  /*const headers = {
     cors: true,
     "Access-Control-Allow-Origin": "*",
     Accept: "application/json",
@@ -16,6 +16,34 @@ export async function handler (req: object) {
     statusCode: 200,
     headers,
     body: JSON.stringify({ok: true})
+  }
+}*/
+
+import "https://deno.land/x/dotenv/load.ts";
+import {
+  APIGatewayProxyEvent,
+  Context,
+} from "https://deno.land/x/lambda/mod.ts";
+
+const headers = {
+  cors: true,
+  "Access-Control-Allow-Origin": "*",
+  Accept: "application/json",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "content-type": "application/json; charset=utf8",
+  "cache-control": "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0",
+}
+export async function handler(req: APIGatewayProxyEvent, context: Context) {
+  try {
+      // const json:any = { DenoVersion: Deno.version, TypeScriptVersion: Deno.version.typescript }
+      return { headers, body: JSON.stringify(Deno.version) }
+  } catch (e) {
+    console.log(e)
+    return {
+      headers,
+      body: JSON.stringify(e)
+    }
   }
 }
 
