@@ -3,6 +3,8 @@ begin-app
 
 @http
 get /
+post /api/senddata
+
 
 @tables
 data
