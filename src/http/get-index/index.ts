@@ -25,7 +25,7 @@ export async function handler (req: object) {
     "Access-Control-Allow-Origin": "*",
     Accept: "application/json",
     "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
     "content-type": "application/json; charset=utf8",
     "cache-control": "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0",
   };
