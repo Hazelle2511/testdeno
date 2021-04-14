@@ -16,7 +16,9 @@ export async function handler (req: object) {
     statusCode: 200,
     headers,
     body: JSON.stringify({ok: true,
-       name: 'Hazelle'                  })
+       title: 'Atomic Habits',
+       author: 'James Corden',
+       pages: 250       })
   }
 }
 
