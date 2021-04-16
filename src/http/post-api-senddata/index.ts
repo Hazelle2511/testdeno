@@ -20,7 +20,7 @@ export async function handler(req: APIGatewayProxyEvent, context: Context) {
   return {  
     statusCode: 200,
     headers,
-    body: JSON.stringify(req)
+    body//: JSON.stringify(req)
   }
 }
 
