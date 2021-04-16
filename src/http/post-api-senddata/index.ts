@@ -15,7 +15,7 @@ export async function handler (req: object) {
   return {
     statusCode: 200,
     headers,
-    body: JSON.stringify(req)
+    body: JSON.stringify(req.body)
   }
 }
 
