@@ -1,5 +1,9 @@
 // TODO: modify the body object!
 
+  import {
+    APIGatewayProxyEvent,
+    Context,
+  } from "https://deno.land/x/lambda/mod.ts"
   const headers = {
     cors: true,
     "Access-Control-Allow-Origin": "*",
@@ -11,11 +15,14 @@
   };
 
 
-export async function handler (req: object) {
-  return {
+export async function handler(req: APIGatewayProxyEvent, context: Context) {
+  let body: any = req!.body || "no body"
+  return {  
     statusCode: 200,
     headers,
     body: JSON.stringify(req)
   }
 }
+
+
 
